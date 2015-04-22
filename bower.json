@@ -1,0 +1,14 @@
+{
+  "name": "project-stub",
+  "version": "0.1.0",
+  "description": "'A project stub for making web sites with BEM methodology",
+  "bugs": "https://github.com/dima716/project-stub/issues",
+  "ignore": [
+    ".bem/cache",
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bootstrap": "matmuchrapna/bem-bootstrap#v0.1.5"
+  }
+}
