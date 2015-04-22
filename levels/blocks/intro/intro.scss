@@ -1,0 +1,14 @@
+.intro {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+  color: #000;
+  line-height: 1.3em;
+  @include clearfix();
+}
+
+@media only screen and (max-width: 991px) {
+  .intro {
+    margin-top: 30px;
+  }
+}

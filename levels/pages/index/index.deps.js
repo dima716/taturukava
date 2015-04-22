@@ -1,8 +1,11 @@
 module.exports.require = [
   'mixins',
   'grid',
+  'heading',
   'alert',
   'header',
   'logo',
-  'order'
+  'order',
+  'intro',
+  'facts'
 ];
