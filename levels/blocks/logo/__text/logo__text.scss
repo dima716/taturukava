@@ -1,6 +1,35 @@
-  .logo__text {
-    text-shadow: 2px 2px 1px rgba(0,0,0,.8);
-    font-size: 19px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: normal;
+.logo__text {
+  display: inline-block;
+  margin-left: 45px;
+  vertical-align: -50px;
+  font-family: 'captureit-regular';
+  font-size: 80px;
+  line-height: 80px;
+
+  &:hover {
+    color: #2a6496;
   }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+  .logo__text {
+    font-size: 70px;
+    line-height: 70px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .logo__text {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 41px;
+    line-height: 41px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .logo__text {
+    font-size: 36px;
+    line-height: 36px;
+  }
+}

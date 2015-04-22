@@ -1,0 +1,23 @@
+.order {
+  position: absolute;
+  z-index:1;
+  top: 0;
+  right: 25px;
+
+  padding: 6px;
+
+  text-align: center;
+
+  border: 2px dotted #000;
+  border-radius: 20px;
+  background: url(img/wall4.png);
+
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 991px) {
+  .order {
+    position: static;
+    display: inline-block;
+  }
+}

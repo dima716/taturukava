@@ -1,8 +1,87 @@
-$body-bg-color: #279B61;
-$font-color: #fff;
+@font-face {
+  font-family: 'captureit-regular';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/captureit/captureit-webfont.eot');
+  src: url('fonts/captureit/captureit-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/captureit/captureit-webfont.woff') format('woff'),
+  url('fonts/captureit/captureit-webfont.ttf') format('truetype'),
+  url('fonts/captureit/captureit-webfont.svg#capture_itregular') format('svg');
+}
+@font-face {
+  font-family: 'bitter-bold';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/bitter/bitter-bold-webfont.eot');
+  src: url('fonts/bitter/bitter-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/bitter/bitter-bold-webfont.woff') format('woff'),
+  url('fonts/bitter/bitter-bold-webfont.ttf') format('truetype'),
+  url('fonts/bitter/bitter-bold-webfont.svg#bitterbold') format('svg');
+}
+
+@font-face {
+  font-family: 'bitter-regular';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/bitter/bitter-regular-webfont.eot');
+  src: url('fonts/bitter/bitter-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/bitter/bitter-regular-webfont.woff') format('woff'),
+  url('fonts/bitter/bitter-regular-webfont.ttf') format('truetype'),
+  url('fonts/bitter/bitter-regular-webfont.svg#bitterregular') format('svg');
+}
+
+
+@font-face {
+  font-family: 'bitter-bolditalic';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/bitter/bitter-bolditalic-webfont.eot');
+  src: url('fonts/bitter/bitter-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/bitter/bitter-bolditalic-webfont.woff') format('woff'),
+  url('fonts/bitter/bitter-bolditalic-webfont.ttf') format('truetype'),
+  url('fonts/bitter/bitter-bolditalic-webfont.svg#bitterbold_italic') format('svg');
+}
+
+@font-face {
+  font-family: 'bitter-italic';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/bitter/bitter-italic-webfont.eot');
+  src: url('fonts/bitter/bitter-italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/bitter/bitter-italic-webfont.woff') format('woff'),
+  url('fonts/bitter/bitter-italic-webfont.ttf') format('truetype'),
+  url('fonts/bitter/bitter-italic-webfont.svg#bitteritalic') format('svg');
+}
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  width:100%;
+  height:100%;
+}
 
 body {
-  background-color: $body-bg-color;
-  color: $font-color;
-  text-align: center;
+  width:100%;
+  height:100%;
+  font-family: 'bitter-regular', sans-serif;
+  font-size: 16px;
+  line-height: 1.1em;
+}
+
+a {
+  text-decoration: none;
 }

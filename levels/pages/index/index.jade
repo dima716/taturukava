@@ -1,8 +1,23 @@
 extends ../layout.jade
 
 block content
-  .logo
-    img(width="250" height="200" src='img/b.svg' class="logo__image")
-    h1(class="logo__text").
-      Congrutilations, bro!
-      You've just set up a project stub for making web sites with BEM methodology
+  header.header
+    .grid_fixed
+      // logo
+      .logo
+        a(href="#", class="logo__link")
+          img(src="img/logo_right.jpg", class="logo__image", alt="Тату рукава")
+          span.logo__text tatu-rukava.ru
+      // logo end
+
+      // order
+      .order
+        a(href="tel:+79217953721", class="order__phone") <i class="fa fa-phone order__icon"></i> +7 (921) 795 37 21
+        span.order__status <i class="fa fa-shopping-cart order__icon"></i> Ваша корзина пуста
+        a(href="#", class="order__button") Заказать!
+      // order end
+
+      // alert
+      .alert.alert_type_warning.header__alert Выбери товар, друг мой! Фредо расстроится, если ты ничего не купишь.
+      // alert end
+

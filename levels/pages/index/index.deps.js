@@ -1,4 +1,8 @@
 module.exports.require = [
-    'mixins',
-    'logo'
+  'mixins',
+  'grid',
+  'alert',
+  'header',
+  'logo',
+  'order'
 ];
