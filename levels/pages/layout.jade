@@ -18,6 +18,33 @@ html(lang="en")
     script(src="https://oss.maxcdn.com/modernizr/2.8.3/modernizr.min.js")
   body
     block content
+    // Yandex.Metrika counter
+    script.
+      (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+          try {
+            w.yaCounter27395663 = new Ya.Metrika({id:27395663,
+              webvisor:true,
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true});
+          } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    noscript.
+      <div><img src="//mc.yandex.ru/watch/27395663" style="position:absolute; left:-9999px;" alt="" /></div>
+    // Yandex.Metrika counter
     script(src="https://oss.maxcdn.com/jquery/2.1.3/jquery.min.js")
     script(src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js")
