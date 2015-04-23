@@ -14,7 +14,7 @@ block content
       .order
         a(href="tel:+79217953721", class="order__phone") <i class="fa fa-phone order__icon"></i> +7 (921) 795 37 21
         span.order__status <i class="fa fa-shopping-cart order__icon"></i> Ваша корзина пуста
-        a(href="#", class="order__button") Заказать!
+        a(href="#", class="order__button label") Заказать!
       // order end
 
       // alert
@@ -55,6 +55,27 @@ block content
           p.facts__text Самовывоз - м. Площадь Мужества
       // facts end
 
+      // products
+      section.products
+        h2.heading Ассортимент
+        .products__area
+          // products rendering here
+      // products end
 
-
+  // templates
+  script(id="products-template" type="text/x-handlebars-template").
+    {{#each blocks}}
+    <div class="grid__cell-md_size_4 products__item">
+      <div class="products__photo">
+        <img src="img/product__{{alias}}.jpg" class="products__image" alt="{{alias}}">
+      </div>
+      <div class="products__name label">{{name}}</div>
+      <div class="products__info">
+        <span class="products__price">{{price}} р.</span>
+        <label class="products__amount">Количество</label>
+        <input data="{{alias}}" name="amount" class="products__spinner" value="0">
+      </div>
+    </div>
+    {{/each}}
+  // templates end
 
