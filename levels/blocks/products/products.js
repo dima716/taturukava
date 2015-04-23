@@ -1,7 +1,6 @@
 var products,
-    order,
     renderCartBox = require('order').renderCartBox,
-    updateSpinners = require('products__spinner').updateSpinners;
+    spinnersUpdate = require('spinner').spinnersUpdate;
 
 $.ajax({
   url: 'data.json',
@@ -9,21 +8,22 @@ $.ajax({
 }).done(function(data){
 
 products = data; // кэшируем продукты
-order = fillOrderObject(); // подготоваливаем объект заказа
+window.order = fillOrderObject(); // подготоваливаем объект заказа
 
 var html = fillTemplate('#products-template', products); // заполняем шаблон данными
 
 $('.products__area').append(html); // вставляем данные в DOM
 
-$('.products__spinner').spinner({
+$('.spinner').spinner({
   min:0,
   max: 10,
   step: 1,
   start: 0
 });
 
-$('.products__spinner').on('spin', changeOrderSpin); // изменяем количество заказанного товара при клилке на спиннер на витрине
+$('.spinner').on('spin', changeOrderSpin); // изменяем количество заказанного товара при клилке на спиннер на витрине
 $('.products__image, .products__name').on('click', changeOrderImg); // изменяем количество заказанного товара при клилке на изображение товара или его название
+$('.popup').on('spin', '.spinner', changeOrderSpinInCart);
 
 }).fail(function(qXHR,textStatus,errorThrown){
   console.log(textStatus);
@@ -55,7 +55,7 @@ function fillOrderObject () {
 function numberOfProductsFun () {
   var amount = 0;
 
-  $.each(order.goods, function(index, value){
+  $.each(window.order.goods, function(index, value){
     amount += value.amount;
   });
 
@@ -66,7 +66,7 @@ function numberOfProductsFun () {
 function totalPriceFun () {
   var price = 0;
 
-  $.each(order.goods, function(index, value){
+  $.each(window.order.goods, function(index, value){
       price += value.productSum;
   });
 
@@ -75,7 +75,7 @@ function totalPriceFun () {
 
 /* Наполняем объект заказа order */
 function preOrder (amount, productAlias) {
-  $.each(order.goods, function(index, value){
+  $.each(window.order.goods, function(index, value){
     if( value.productAlias === productAlias) {
       value.amount = amount;
       value.productSum = amount*value.productPrice;
@@ -88,6 +88,19 @@ function preOrder (amount, productAlias) {
 
   // Обновляем состоние корзины, отображаемое на главной странице
   renderCartBox(totalSum, totalAmount);
+}
+
+/* Рендерит заказ в корзине*/
+function renderOrder () {
+  var data = window.order; // подготавливаем объект данных для Handlebars
+  data.totalPrice = totalPriceFun(); // добавляем для него общую стоимость заказа
+
+  var html = fillTemplate('#order-template', data); // заполняем шаблон данными
+
+  var orderInfo = $('.popup__order-info');
+  orderInfo.html(html); // вставляем html в DOM
+
+  orderInfo.find('.spinner').spinner({max: 10, min: 1});
 }
 
 /* Добавление товара в корзину, при изменении значения спиннера */
@@ -106,7 +119,7 @@ function changeOrderImg (event) {
   $('.alert').hide();
 
   var element = event.currentTarget,
-  input = $(element).parents('.products__item').find('.products__spinner'),
+  input = $(element).parents('.products__item').find('.spinner'),
   maxSpinnerValue = input.spinner( "option", "max" ),
   currentVal = input.val(),
   newVal = parseInt(currentVal) + 1,
@@ -119,3 +132,23 @@ function changeOrderImg (event) {
   preOrder(newVal, productAlias);
 }
 
+/* Добавление товара в корзину, при изменении значения спиннера внутри корзины  */
+function changeOrderSpinInCart (event, ui) {
+  var thisInput = event.currentTarget,
+      newVal = ui.value,
+      input = $(thisInput),
+      productAlias = input.attr('data'),
+      productLine = input.parents('.grid__row'),
+      productPrice = parseInt(productLine.find('.popup__price').html());
+
+  productLine.find('.popup__current-sum').text(productPrice * newVal); // обновляем стоимость указанного товара
+  preOrder(newVal, productAlias); // обновляем объект заказа
+
+  $('#total-sum').val(totalPriceFun()); // обновляем итоговую сумму заказа в попапе
+  spinnersUpdate(newVal, productAlias); // обновляем спиннеры на витрине
+}
+
+module.exports = {
+  numberOfProductsFun: numberOfProductsFun,
+  renderOrder: renderOrder
+}

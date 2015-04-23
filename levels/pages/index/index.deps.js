@@ -1,5 +1,6 @@
 module.exports.require = [
   'mixins',
+  'magnificpopup',
   'grid',
   'heading',
   'label',
@@ -11,7 +12,9 @@ module.exports.require = [
   'content',
   'intro',
   'facts',
+  'spinner',
   'products',
   'details',
+  'popup',
   'footer'
 ];

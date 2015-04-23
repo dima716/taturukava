@@ -72,6 +72,32 @@ block content
           p.details__text Поэтому поступай мудро, и пусть все твои татуировки окажутся новыми <span class="details__text_type_good">истинами</span>, а не глубокими <span class="details__text_type_bad">заблуждениями!</span>
       // details end
 
+      // popup
+      .popup.mfp-hide#popup
+        h3.popup__heading Корзина
+        h4.popup__title Ваш заказ
+        form.popup__form
+          .popup__order-info
+            // Здесь рендерятся товары, добавленные в корзину
+          .popup__client-info
+            .grid__row.popup__row
+              label(class="grid__cell-xs_size_3 popup__label", for="form-name") Ваше имя
+              .grid__cell-xs_size_9
+                input(id="form-name", class="popup__input", type="text", placeholder="Имя", name="name")
+            .grid__row.popup__row
+              label(class="grid__cell-xs_size_3 popup__label", for="form-phone") Телефон
+              .grid__cell-xs_size_9
+                input(id="form-phone", class="popup__input", type="phone", placeholder="Телефон", name="phone")
+            .grid__row.popup__row
+              label(class="grid__cell-xs_size_3 popup__label", for="form-mail") Почта
+              .grid__cell-xs_size_9
+                input(id="form-mail", class="popup__input", type="email", placeholder="Почта", name="mail")
+          .popup__footer
+            a(href="#", class="popup__close label") Продолжить покупки
+            button(type="submit", class="label popup__submit") Заказать!
+            button(type="button", class="mfp-close", title="Закрыть (Esc)") ×
+      // popup end
+
       // footer
       footer.footer
         a(href="tel:+7921795372", class="phone footer__phone") <i class="fa fa-phone phone__icon"></i> +7 (921) 795 37 21
@@ -89,8 +115,28 @@ block content
       <div class="products__info">
         <span class="products__price">{{price}} р.</span>
         <label class="products__amount">Количество</label>
-        <input data="{{alias}}" name="amount" class="products__spinner" value="0">
+        <input data="{{alias}}" name="amount" class="spinner" value="0">
       </div>
     </div>
     {{/each}}
+
+  script(id="order-template" type="text/x-handlebars-template").
+    {{#each goods}}
+      {{#if amount }}
+      <div class="grid__row popup__row">
+        <label class="grid__cell-xs_size_3 popup__label">{{name}}</label>
+        <div class="grid__cell-xs_size_9">
+          <input data="{{productAlias}}" name="amount" class="spinner" value="{{amount}}">
+          x <span class="popup__price">{{productPrice}}</span> р. = <span class="popup__current-sum">{{productSum}}</span> р.
+        </div>
+      </div>
+      {{/if}}
+    {{/each}}
+
+    <div class="grid__row">
+      <label class="grid__cell-xs_size_3 popup__label">Итого</label>
+      <div class="grid__cell-xs_size_9">
+        <input class="popup__input" type="text" id="total-sum" value="{{totalPrice}}" readonly="readonly" name="totalprice"> руб
+      </div>
+    </div>
   // templates end

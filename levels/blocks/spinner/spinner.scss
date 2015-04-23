@@ -1,4 +1,4 @@
-.products__spinner {
+.spinner {
   width: 30px;
   height: 30px;
   margin-right: 3px;
@@ -9,4 +9,8 @@
   border-radius: 50%;
   outline: 0;
   background: #000;
+}
+
+.ui-spinner-button {
+  cursor: pointer;
 }
