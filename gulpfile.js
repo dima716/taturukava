@@ -16,7 +16,6 @@ var gulp = require('gulp'),
 
 
 var levels = [
-    'libs/plugins',
     'libs/bootstrap/levels/normalize',
     'libs/bootstrap/levels/print',
     'libs/bootstrap/levels/glyphicons',
@@ -24,6 +23,7 @@ var levels = [
     'libs/bootstrap/levels/core',
     'libs/bootstrap/levels/components',
     'libs/bootstrap/levels/js',
+    'levels/vendor',
     'levels/base',
     'levels/blocks',
     'levels/pages'
