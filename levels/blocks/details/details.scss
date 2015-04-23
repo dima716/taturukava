@@ -1,0 +1,10 @@
+.details {
+  margin-bottom: 20px;
+  @include clearfix();
+}
+
+@media only screen and (max-width: 600px) {
+  .details {
+    display: none;
+  }
+}

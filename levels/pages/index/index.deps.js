@@ -10,5 +10,6 @@ module.exports.require = [
   'content',
   'intro',
   'facts',
-  'products'
+  'products',
+  'details'
 ];
