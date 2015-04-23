@@ -1,0 +1,48 @@
+{
+    "blocks": [
+        {
+            "name": "Blessed Hands",
+            "alias": "blessed-hands",
+            "price": "300"
+        },
+        {
+            "name": "Born To Be Wild",
+            "alias": "born-to-be-wild",
+            "price": "350"
+        },
+        {
+            "name": "Black Magic",
+            "alias": "black-magic",
+            "price": "400"
+        },
+        {
+            "name": "Black Tribal",
+            "alias": "black-tribal",
+            "price": "500"
+        },
+        {
+            "name": "Dead Men",
+            "alias": "dead-men",
+            "price": "300"
+        },
+        {
+            "name": "Dragon Fire",
+            "alias": "dragon-fire",
+            "price": "500"
+        },
+        {
+            "name": "Dragon Skull",
+            "alias": "dragon-skull",
+            "price": "350"
+        },
+        {
+            "name": "Dragon Sunfire",
+            "alias": "dragon-sunfire",
+            "price": "450"
+        },
+        {
+            "name": "Dragons and Demons",
+            "alias": "dragon-and-demons",
+            "price": "450"
+        }
+]}
