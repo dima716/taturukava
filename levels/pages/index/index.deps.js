@@ -6,10 +6,12 @@ module.exports.require = [
   'alert',
   'header',
   'logo',
+  'phone',
   'order',
   'content',
   'intro',
   'facts',
   'products',
-  'details'
+  'details',
+  'footer'
 ];
